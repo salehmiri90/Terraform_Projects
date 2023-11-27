@@ -1,0 +1,49 @@
+### plan 
+[root@miri01 trconfig]# terraform apply
+
+Terraform used the selected providers to generate the following execution plan. Resource
+actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # esxi_guest.vmtest01 will be created
+  + resource "esxi_guest" "vmtest01" {
+      + boot_disk_size         = (known after apply)
+      + boot_disk_type         = "thin"
+      + disk_store             = "DS_001"
+      + guest_name             = "vmtest02"
+      + guest_shutdown_timeout = (known after apply)
+      + guest_startup_timeout  = (known after apply)
+      + guestos                = (known after apply)
+      + id                     = (known after apply)
+      + ip_address             = (known after apply)
+      + memsize                = (known after apply)
+      + notes                  = (known after apply)
+      + numvcpus               = (known after apply)
+      + ovf_properties_timer   = (known after apply)
+      + power                  = (known after apply)
+      + resource_pool_name     = "/"
+      + virthwver              = (known after apply)
+
+      + network_interfaces {
+          + mac_address     = (known after apply)
+          + nic_type        = (known after apply)
+          + virtual_network = "VM Network"
+        }
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+esxi_guest.vmtest01: Creating...
+esxi_guest.vmtest01: Still creating... [10s elapsed]
+esxi_guest.vmtest01: Creation complete after 11s [id=2]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
