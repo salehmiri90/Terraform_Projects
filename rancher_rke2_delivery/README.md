@@ -32,19 +32,21 @@ I employed various technologies, primarily utilizing Terraform, GitLab, Nexus, a
    cd rancher_rke2_delivery
    ```
 
-2. Create a .tfvars file with the required variables:
+2. modify the `terraform.tfvars` file with the required variables:
 
     ```bash
-    rancher_api_url   = "https://your-rancher-url"
-    rancher_token_key = "your-rancher-api-token"
-    project_name      = "Your Project Name"
-    namespace_names   = ["namespace1", "namespace2"]
-    gitlab_token      = "your-gitlab-token"
-    nexus_user        = "nexus-username"
-    nexus_pass        = "nexus-password"
-    ssh_host          = "server-ip"
-    start_port        = 3000
-    end_port          = 4000
+    rancher_api_url     = "https://rancher.saleh.ir/v3"
+    rancher_token_key   = "kubeconfig-m-i3sxgwoz6h82fwdcx4bwkw98m8hr2"
+    project_name        = "salehmiri"
+    project_description = "Project for Saleh Miri"
+    namespace_names     = ["miri-dev", "miri-uat", "miri-prd"]
+    start_port  = 5000
+    end_port    = 6000
+    ssh_host    = "12.7.2.11"
+    remote_user = "root"
+    remote_pass = "saleh@miri"
+    nexus_user  = "admin"
+    nexus_pass  = "saleh@miri"
     ```
 
 3. Run the following commands:
