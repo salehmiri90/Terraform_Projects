@@ -1,27 +1,33 @@
 #####################################
 ### Section for managing Rancher2 ###
-
 provider "rancher2" {
   api_url   = var.rancher_api_url
   token_key = var.rancher_token_key
-  insecure  = true
+  insecure  = var.rancher_ssl
 }
 
 resource "rancher2_project" "project" {
   name        = var.project_name
   description = var.project_description
-  cluster_id  = "c-d-3wrecfwbt6t9"
+  cluster_id  = var.rancher_cluster_id
 
   resource_quota {
     project_limit {
-      limits_cpu    = "60000m"
-      limits_memory = "254659Mi"
+      limits_cpu    = var.project_quota_cpu
+      limits_memory = var.project_quota_mem
     }
     namespace_default_limit {
-      limits_cpu    = "20000m"
-      limits_memory = "84886Mi"
+      limits_cpu    = var.namespace_quota_cpu
+      limits_memory = var.namespace_quota_mem
     }
   }
+}
+
+resource "rancher2_namespace" "namespaces" {
+  for_each    = toset(var.namespace_names)
+  project_id  = rancher2_project.project.id
+  name        = each.value
+  description = "${each.value} namespace for ${var.project_name} project"
 }
 
 resource "rancher2_namespace" "namespaces" {

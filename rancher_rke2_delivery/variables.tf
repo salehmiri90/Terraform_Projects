@@ -18,9 +18,39 @@ variable "rancher_token_key" {
   description = "Rancher Access Token Key"
 }
 
+variable "rancher_ssl" {
+  type = bool
+  description = "if you are using self sign certificate, set to true"
+}
+
 variable "project_description" {
   type        = string
   description = "Description of the project"
+}
+
+variable "rancher_cluster_id" {
+  type        = string
+  description = "your rancher cluster id found it in rancher project web url"
+}
+
+variable "project_quota_cpu" {
+  type        = string
+  description = "the total project's cpu amount"
+}
+
+variable "project_quota_mem" {
+  type        = string
+  description = "the total project's memory amount"
+}
+
+variable "namespace_quota_cpu" {
+  type        = string
+  description = "the total namespace's cpu amount"
+}
+
+variable "namespace_quota_mem" {
+  type        = string
+  description = "the total namespace's memory amount"
 }
 
 variable "namespace_names" {

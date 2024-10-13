@@ -1,7 +1,13 @@
 rancher_api_url     = "https://rancher.saleh.ir/v3"
 rancher_token_key   = "kubeconfig-m-i3sxgwoz6h82fwdcx4bwkw98m8hr2"
+rancher_ssl         = true
+rancher_cluster_id  = "c-d-3wrecfwbt6t9"
 project_name        = "salehmiri"
 project_description = "Project for Saleh Miri"
+project_quota_cpu   = "60000m"
+project_quota_mem   = "254659Mi"
+namespace_quota_cpu = "20000m"
+namespace_quota_mem = "84886Mi"
 namespace_names     = ["miri-dev", "miri-uat", "miri-prd"]
 ####
 gitlab_url          = "http://git.saleh.ir"
