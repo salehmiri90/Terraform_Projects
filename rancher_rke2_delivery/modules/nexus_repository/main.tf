@@ -1,10 +1,10 @@
 resource "nexus_repository_docker_hosted" "docker_repo" {
-  name = var.projectname
+  name   = var.projectname
   online = true
 
   storage {
     blob_store_name                = "default"
-    strict_content_type_validation  = false
+    strict_content_type_validation = false
     write_policy                   = "ALLOW"
   }
     

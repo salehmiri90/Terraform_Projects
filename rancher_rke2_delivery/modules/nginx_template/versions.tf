@@ -3,17 +3,17 @@ terraform {
     rancher2 = {
       source = "rancher/rancher2"
     }
-    gitlab = {
+    gitlab   = {
       source = "gitlabhq/gitlab"
     }
     null = {
       source  = "hashicorp/null"
       version = "~> 3.1"
     }
-    nexus = {
+    nexus    = {
       source = "datadrivers/nexus"
     }
-    template = {
+    template  = {
       source  = "hashicorp/template"
     }
     local = {

@@ -1,6 +1,6 @@
 terraform {
   required_providers {
-    nexus = {
+    nexus    = {
       source = "datadrivers/nexus"
     }
   }

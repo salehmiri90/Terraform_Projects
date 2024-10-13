@@ -1,7 +1,7 @@
 data "template_file" "nginx_config" {
   template = file("nginx.conf.tpl")
 
-  vars = {
+  vars          = {
     listen_port = var.listen_port
     server_name = var.server_name
     proxy_port  = var.listen_port

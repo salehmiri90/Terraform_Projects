@@ -19,7 +19,7 @@ variable "rancher_token_key" {
 }
 
 variable "rancher_ssl" {
-  type = bool
+  type        = bool
   description = "if you are using self sign certificate, set to true"
 }
 
@@ -71,32 +71,32 @@ variable "gitlab_token" {
 }
 
 variable "gitlab_ssl" {
-  type = bool
+  type        = bool
   description = "if you are using self sign certificate, set to true"
 }
 
 variable "gitlab_group_path" {
-  type = string
+  type        = string
   description = "the path of gitlab group, usually set same as group name"
 }
 
 variable "gitlab_group_descpn" {
-  type = string
+  type        = string
   description = "description to set on the gitlab group"
 }
 
 variable "gitlab_project_descpn" {
-  type = string
+  type        = string
   description = "description to set on the gitlab project"
 }
 
 variable "gitlab_visibility" {
-  type = string
+  type        = string
   description = "choose if your project is public or private"
 }
 
 variable "gitlab_members" {
-  type = list(string)
+  type        = list(string)
   description = "List of GitLab usernames to add as members"
 }
 
