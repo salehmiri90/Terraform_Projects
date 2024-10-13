@@ -1,7 +1,6 @@
 # Ignore directories
 plugins/*
 VRA/*
-rancher_delivery/*
 kuber/*
 tf_vcenter_ok/*
 vm_template/*
