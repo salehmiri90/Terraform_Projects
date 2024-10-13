@@ -58,45 +58,45 @@ I employed various technologies, primarily utilizing Terraform, GitLab, Nexus, a
 
 ## Rancher2 Project and Namespace
 
-- **Creates a Rancher project with resource quotas (CPU and memory).
+- **Creates a Rancher project with resource quotas (CPU and memory).**
 
-- **Adds namespaces to the project, with default limits for each namespace.
+- **Adds namespaces to the project, with default limits for each namespace.**
 
 ## GitLab Group, Project, and User
 
-- **Creates a GitLab group and project with a specified user and permission levels.
+- **Creates a GitLab group and project with a specified user and permission levels.**
 
-- **Example GitLab resources:
+- **Example GitLab resources:**
         Group: `test_saleh`
         Project: `test_saleh_project`
 
 ## Free Port Finder
 
-- **A module that checks and allocates available ports on the specified host.
+- **A module that checks and allocates available ports on the specified host.**
 
 ## Nexus Repository
 
-- **Sets up a Nexus Docker repository with a dynamically assigned HTTP port.
+- **Sets up a Nexus Docker repository with a dynamically assigned HTTP port.**
 
 ## Nginx Configuration
 
-- **Configures an Nginx proxy to forward traffic to Nexus using the available port.
+- **Configures an Nginx proxy to forward traffic to Nexus using the available port.**
 
-- **The Nginx configuration is uploaded to the target host and reloaded.
+- **The Nginx configuration is uploaded to the target host and reloaded.**
 
 ## Outputs
 
-- **GitLab Group ID: Outputs the ID of the created GitLab group.
+- **GitLab Group ID: Outputs the ID of the created GitLab group.**
 
-- **Available Port: The dynamically selected port for Nexus.
+- **Available Port: The dynamically selected port for Nexus.**
 
-- **Nginx Configuration: Nginx proxy setup for the Nexus repository.
+- **Nginx Configuration: Nginx proxy setup for the Nexus repository.**
 
 ## Modules
 
 ## Nexus Repository Module
 
-- **Sets up a Nexus Docker repository using the provided project name and dynamic port.
+- **Sets up a Nexus Docker repository using the provided project name and dynamic port.**
 
     ```bash
     resource "nexus_repository_docker_hosted" "docker_repo" {
@@ -108,7 +108,7 @@ I employed various technologies, primarily utilizing Terraform, GitLab, Nexus, a
 
 ## Nginx Proxy Module
 
-- **Generates an Nginx configuration file and uploads it to the target host.
+- **Generates an Nginx configuration file and uploads it to the target host.**
 
     ```bash
     resource "local_file" "nginx_config" {
@@ -119,7 +119,7 @@ I employed various technologies, primarily utilizing Terraform, GitLab, Nexus, a
 
 ## Port Checker Module
 
-- **Scans for free ports within a given range on the target host.
+- **Scans for free ports within a given range on the target host.**
 
     ```bash
     bash check_available_ports.sh ${var.start_port} ${var.end_port} ${var.ssh_host}
