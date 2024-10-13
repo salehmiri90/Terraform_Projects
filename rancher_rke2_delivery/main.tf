@@ -34,22 +34,22 @@ resource "rancher2_namespace" "namespaces" {
 ### Section for Gitlab ###
 
 provider "gitlab" {
-  base_url = "http://git.saleh.ir/"
-  token    = "glpat-9e_yoQxsdpzsPzFa1e2UBfdFPgFA-"
-  insecure = true
+  base_url = var.gitlab_url
+  token    = var.gitlab_token
+  insecure = var.gitlab_ssl
 }
 
 resource "gitlab_group" "group" {
-  name        = "test_saleh"
-  path        = "test_saleh"
-  description = "This is an example group created by salehmiri"
+  name        = var.project_name
+  path        = var.gitlab_group_path
+  description = var.gitlab_group_descpn
 }
 
 resource "gitlab_project" "project" {
-  name             = "test_saleh_project"
+  name             = var.project_name
   namespace_id     = gitlab_group.group.id
-  description      = "This is an example project created in the test_saleh Group."
-  visibility_level = "private"
+  description      = var.gitlab_project_descpn
+  visibility_level = var.gitlab_visibility
 }
 
 output "group_id" {
@@ -58,12 +58,14 @@ output "group_id" {
 }
 
 data "gitlab_user" "user" {
-  username = "s.miri"
+  for_each = toset(var.gitlab_members)
+  username = each.key
 }
 
 resource "gitlab_group_membership" "member" {
+  for_each     = data.gitlab_user.users
   group_id     = gitlab_group.group.id
-  user_id      = data.gitlab_user.user.id
+  user_id      = each.value.id
   access_level = "maintainer"
   expires_at   = null
 }
@@ -91,7 +93,7 @@ output "available_port" {
 ###################################
 ### Section for Accessing Nexus ###
 provider "nexus" {
-  url      = "http://${var.ssh_host}:8091"
+  url      = "http://${var.ssh_host}:${var.ssh_host_port}"
   username = var.nexus_user
   password = var.nexus_pass
 }

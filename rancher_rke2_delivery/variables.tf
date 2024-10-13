@@ -28,6 +28,48 @@ variable "namespace_names" {
   description = "List of namespace names"
 }
 
+#######################################
+### Section for GitLab Info ###
+variable "gitlab_url" {
+  type        = string
+  description = "URL to access gitlab web page"
+}
+
+variable "gitlab_token" {
+  type        = string
+  description = "token key to access gitlab server"
+}
+
+variable "gitlab_ssl" {
+  type = bool
+  description = "if you are using self sign certificate, set to true"
+}
+
+variable "gitlab_group_path" {
+  type = string
+  description = "the path of gitlab group, usually set same as group name"
+}
+
+variable "gitlab_group_descpn" {
+  type = string
+  description = "description to set on the gitlab group"
+}
+
+variable "gitlab_project_descpn" {
+  type = string
+  description = "description to set on the gitlab project"
+}
+
+variable "gitlab_visibility" {
+  type = string
+  description = "choose if your project is public or private"
+}
+
+variable "gitlab_members" {
+  type = list(string)
+  description = "List of GitLab usernames to add as members"
+}
+
 
 #######################################
 ### Section for free port and Nexus ###
@@ -44,6 +86,11 @@ variable "end_port" {
 variable "ssh_host" {
   description = "nexus host ip or name for connecting"
   type        = string
+}
+
+variable "ssh_host_port" {
+  description = "nexus host port for connecting"
+  type        = number
 }
 
 variable "remote_user" {
