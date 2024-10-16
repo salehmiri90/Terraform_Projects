@@ -1,14 +1,6 @@
 ## Terraform ESXi Provider Configuration
 This repository contains Terraform code to manage virtual machines on an ESXi host using the ESXi provider. The code allows you to define and provision virtual machines (VMs) with specific configurations, including network interfaces and disk storage.
 
-## Table of Contents
-
-- [Prerequisites](#prerequisites)
-- [Usage](#usage)
-- [Variables](#variables)
-- [Resources](#resources)
-- [License](#license)
-
 ## Prerequisites
 
 Before using this Terraform configuration, ensure you have the following:
